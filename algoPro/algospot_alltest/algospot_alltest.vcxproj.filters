@@ -24,9 +24,6 @@
     <ClCompile Include="algospot_arctic.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="algospot_sentence.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="algospot_boggle.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -240,6 +237,15 @@
     <ClCompile Include="algospot_mordor_new.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="algospot_sentence.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_fanmeeting.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_weird.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="input.txt">
@@ -251,5 +257,10 @@
     <None Include="C:\Documents and Settings\hong\My Documents\My Pictures\ascii.png">
       <Filter>리소스 파일</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="algorithm.txt">
+      <Filter>리소스 파일</Filter>
+    </Text>
   </ItemGroup>
 </Project>
