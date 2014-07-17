@@ -24,9 +24,6 @@
     <ClCompile Include="algospot_arctic.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="algospot_sentence.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="algospot_boggle.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -112,9 +109,6 @@
       <Filter>done</Filter>
     </ClCompile>
     <ClCompile Include="algospot_move.cpp">
-      <Filter>done</Filter>
-    </ClCompile>
-    <ClCompile Include="algospot_numb3rs.cpp">
       <Filter>done</Filter>
     </ClCompile>
     <ClCompile Include="algospot_starcraft.cpp">
@@ -237,7 +231,37 @@
     <ClCompile Include="algospot_civ5.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="algospot_mordor_new.cpp">
+    <ClCompile Include="algospot_dirctionary.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_festival.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_xhzeneung.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_weeklycalendar.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_jump.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_klis.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_numb3rs.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_poly.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_7662.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_6064.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_5480.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -248,8 +272,10 @@
     <None Include="메인.txt">
       <Filter>리소스 파일</Filter>
     </None>
-    <None Include="C:\Documents and Settings\hong\My Documents\My Pictures\ascii.png">
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="16_ASCII code.jpg">
       <Filter>리소스 파일</Filter>
-    </None>
+    </Image>
   </ItemGroup>
 </Project>

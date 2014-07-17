@@ -10,7 +10,7 @@
 #include<bitset>
 using namespace std;
 
-#pragma warning(disable:4996)
+#pragma warning (disable:4996)
 ifstream in("input.txt");
 
 int main(){
