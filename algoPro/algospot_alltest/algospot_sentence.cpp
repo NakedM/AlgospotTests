@@ -1,69 +1,47 @@
 #include<iostream>
-#include<string>
-#include<algorithm>
 #include<fstream>
+#include<string>
+#include<cstring>
+#include<cmath>
 #include<vector>
-
-#pragma warning (disable : 4996)
-
+#include<algorithm>
+#include<queue>
 using namespace std;
 
+ifstream in("input.txt");
 
 int main(){
-#ifdef _CONSOLE
-	freopen("input.txt", "r", stdin);
+#ifdef _CONSOLE    
+	freopen("input.txt","r", stdin);
+	//	freopen("output.txt","w+", stdout);
 #endif
-	int n, m;
-	cin >> n >> m;
-
+	int m;
+	int n;
+	cin>>m;
+	cin>>n;
+	vector<string> sentence(m);
+	string str;
 	cin.ignore();
-
-	vector<string> oringinalStr(n);
-	vector<bool> usedStr(n,false);
-	vector<string> memoStr(m);
-	vector<bool> memoUsed(m, false);
-
-	string tmpstr;
-	for (int i = 0; i < n; i++)
-	{
-		getline(cin, tmpstr);
-		oringinalStr[i] = tmpstr;
+	vector<bool> bolvt;
+	for(int i=0;i<m;i++){
+		getline(cin,str);
+		sentence[i] = str;
+		//bolvt.push_back(false);
 	}
-
-	for (int i = 0; i < m; i++)
-	{
-		getline(cin, tmpstr);
-		memoStr[i] = tmpstr;
+	vector<string> strvt(n);
+	
+	for(int i=0;i<n;i++){
+		getline(cin,str);
+		strvt[i];		
 	}
+	//sort(sentence.begin(),sentence.end());
+	//sort(strvt.begin(),strvt.end());
 
-	int count = 0;
-	for (int i = 0; i < n; i++){
-		if (usedStr[i])
-			continue;
-		for (int j = 0; j < m; j++){
-			if (memoUsed[j])
-				continue;
-			int pos = 0;
-			int mlen = memoStr[j].length();
-			while (pos < mlen)
-			{
-				if (oringinalStr[i][pos] == memoStr[j][pos])
-				{
-					++pos;
-				}
-				else
-					break;
-			}
-			if (pos == mlen){
-				usedStr[i] = true;
-				memoUsed[j] = true;
-				count++;
-				continue;
-			}
-		}
-	}
 
-	cout << count << endl;
+	cout<<(int)sentence[0].find(strvt[1])<<endl;
+	int count =0;
 
+	
+	cout<<count<<endl;
 	return 0;
 }
