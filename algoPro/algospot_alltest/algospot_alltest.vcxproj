@@ -76,13 +76,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-<<<<<<< HEAD
-=======
-    <ClCompile Include="algospot_fanmeeting.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="algospot_mordor_new.cpp" />
->>>>>>> parent of 414057f... Revert "Revert "Revert "notebook + desktop"""
     <ClCompile Include="algospot_anagram.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -311,14 +304,10 @@
     <ClCompile Include="algospot_uri.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-<<<<<<< HEAD
     <ClCompile Include="algospot_weeklycalendar.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="algospot_xhzeneung.cpp">
-=======
-    <ClCompile Include="algospot_weird.cpp">
->>>>>>> parent of 414057f... Revert "Revert "Revert "notebook + desktop"""
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="algospot_yulo.cpp">
@@ -342,11 +331,7 @@
     <None Include="메인.txt" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Image Include="16_ASCII code.jpg" />
-=======
-    <Text Include="algorithm.txt" />
->>>>>>> parent of 414057f... Revert "Revert "Revert "notebook + desktop"""
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
