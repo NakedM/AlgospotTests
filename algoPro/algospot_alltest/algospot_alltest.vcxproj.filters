@@ -21,6 +21,12 @@
     <ClCompile Include="algospot_bst.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+<<<<<<< HEAD
+=======
+    <ClCompile Include="algospot_arctic.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+>>>>>>> parent of 414057f... Revert "Revert "Revert "notebook + desktop"""
     <ClCompile Include="algospot_boggle.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -231,6 +237,7 @@
     <ClCompile Include="algospot_dirctionary.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="algospot_festival.cpp">
       <Filter>done</Filter>
     </ClCompile>
@@ -267,6 +274,17 @@
     <ClCompile Include="algospot_arctic.cpp">
       <Filter>done</Filter>
     </ClCompile>
+=======
+    <ClCompile Include="algospot_sentence.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_fanmeeting.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_weird.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+>>>>>>> parent of 414057f... Revert "Revert "Revert "notebook + desktop"""
   </ItemGroup>
   <ItemGroup>
     <None Include="input.txt">
@@ -280,5 +298,10 @@
     <Image Include="16_ASCII code.jpg">
       <Filter>리소스 파일</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="algorithm.txt">
+      <Filter>리소스 파일</Filter>
+    </Text>
   </ItemGroup>
 </Project>
