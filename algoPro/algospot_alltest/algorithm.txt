@@ -1,0 +1,73 @@
+/////O(n^lg3) 카라츠바의 빠른 정수 곱셈 알고리즘
+void addTo(vector<int> &a, const vector<int>& b, int k) //a += b(10^k)
+void subFrom(vector<int> &a, const vector<int>& b); //a -= b
+
+vector<int> karatsuba(const vector<int>& a, const vector<int>&b){
+	int an = a.size();, bn=b.size();
+
+	if(an < bn) return karatsuba(b,a);
+
+	if(an == 0 || bn== 0 ) return vector<int>();
+
+	if(an <= 50) return multiply(a,b); 
+
+	//a와 b를 밑에서 half 자리와 나머지로 분리한다.
+	int half = an/2;
+	vector<int> a0(a.begin(), a.begin() + half);
+	vector<int> a1(a.begin() + half, a.end());
+	vector<int> b0(b.begin(), b.begin() + min<int>(b.size(),half));
+	vector<int> b1(b.begin() + min<int>(b.size(),half), b.end());
+
+	vector<int> z2 = karatsuba(a1, b1);
+	vector<int> z0 = karatsuba(a0, b0);
+	addTo(a0, a1, 0);
+	addTo(b0, b1, 0);
+
+	vector<int> z1 = karatsuba(a0, b0);
+	subFrom(z1, z0);
+	subFrom(z1, z2);
+
+	vector<int> ret;
+	addTo(ret, z0, 0);
+	addTo(ret, z1, half);
+	addTo(ret, z2, half + half));
+	return ret;
+}
+
+//////////////////////////에라토스테네스의 체를 이용한 빠른 소인수 분해
+
+int minFactor[MAX_N};
+
+void eratosthenes2(){
+	minFactor[0] = minFactor[1] = -1;
+
+	for(int i= 2; i<=n; ++i)
+		minFactor[i] = i;
+
+	int sqrtn = int(sqrt(n));
+	for(int i = 2; i<= sqrtn; ++i){
+		if(minFactor[i] == i){
+			for(int j = i*i; j<=n j+=i)
+				if(minFactor[j] == j)
+					minFactor[j] = i;
+		}
+	}
+}
+
+vector<int> factor(int n) {
+	vector<int> ret;
+
+	while(n > 1){
+		ret.push_back(minFactor[n]);
+		n /= minFactor[n];
+	}
+	return ret;
+}
+
+////////////////////// 유클리드 알고리즘 (최대공약수)
+
+int gcd(int p, int q){
+	if(q ==0) return p;
+	return gcd(q, p & q);
+}
+
