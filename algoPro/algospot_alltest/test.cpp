@@ -43,6 +43,9 @@ vector<int> getSuffixArray(const string& s){
 
 		Comparator compareUsing2T(group, t);
 		sort(perm.begin(), perm.end(), compareUsing2T);
+		for (int i = 0; i < perm.size(); i++)
+			cout << perm[i] << " ";
+		cout << endl;
 
 		t *= 2;
 		if (t >= n) break;
