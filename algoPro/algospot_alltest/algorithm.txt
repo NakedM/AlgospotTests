@@ -78,6 +78,7 @@ int ceil(int a, int b){
 	return (a + b - 1) / b;
 }
 
+<<<<<<< HEAD
 =======
 >>>>>>> origin/master
 ////////////////KMP 알고리즘
@@ -140,3 +141,5 @@ vector<int> kmpSearch(const string& txt, const string& pat){
 =======
 ///////////////
 >>>>>>> origin/master
+=======
+>>>>>>> parent of 101dd87... Merge remote-tracking branch 'origin/master'

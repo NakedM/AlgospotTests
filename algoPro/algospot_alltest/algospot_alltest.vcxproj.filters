@@ -21,6 +21,9 @@
     <ClCompile Include="algospot_bst.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="algospot_arctic.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
     <ClCompile Include="algospot_boggle.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -261,36 +264,6 @@
     <ClCompile Include="boj_5480.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="algospot_loan.cpp">
-      <Filter>done</Filter>
-    </ClCompile>
-    <ClCompile Include="algospot_arctic.cpp">
-      <Filter>done</Filter>
-    </ClCompile>
-    <ClCompile Include="algospot_fanmeeting.cpp">
-      <Filter>done</Filter>
-    </ClCompile>
-<<<<<<< HEAD
-    <ClCompile Include="algospot_pass486.cpp">
-      <Filter>done</Filter>
-    </ClCompile>
-    <ClCompile Include="algospot_potion.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="algospot_note.cpp">
-      <Filter>done</Filter>
-    </ClCompile>
-=======
-    <ClCompile Include="algospot_ites.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="algospot_palindromize.cpp">
-      <Filter>done</Filter>
-    </ClCompile>
-    <ClCompile Include="test.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
->>>>>>> origin/master
   </ItemGroup>
   <ItemGroup>
     <None Include="input.txt">
@@ -304,10 +277,5 @@
     <Image Include="16_ASCII code.jpg">
       <Filter>리소스 파일</Filter>
     </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="algorithm.txt">
-      <Filter>리소스 파일</Filter>
-    </Text>
   </ItemGroup>
 </Project>
