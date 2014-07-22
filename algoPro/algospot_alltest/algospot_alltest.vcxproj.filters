@@ -270,6 +270,7 @@
     <ClCompile Include="algospot_fanmeeting.cpp">
       <Filter>done</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="algospot_pass486.cpp">
       <Filter>done</Filter>
     </ClCompile>
@@ -279,6 +280,17 @@
     <ClCompile Include="algospot_note.cpp">
       <Filter>done</Filter>
     </ClCompile>
+=======
+    <ClCompile Include="algospot_ites.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_palindromize.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="test.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+>>>>>>> origin/master
   </ItemGroup>
   <ItemGroup>
     <None Include="input.txt">

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 4
 4
 4 6 2 4
@@ -11,3 +12,9 @@
 2
 1 2
 0 3
+=======
+3
+there
+amanaplanacanal
+xyz
+>>>>>>> origin/master
