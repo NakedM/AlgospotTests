@@ -67,7 +67,13 @@ vector<int> factor(int n) {
 ////////////////////// 유클리드 알고리즘 (최대공약수)
 
 int gcd(int p, int q){
-	if(q ==0) return p;
-	return gcd(q, p & q);
+	return q ==0 ? p : gcd(q, p % q);
+}
+
+
+////////////////////// a / b 보다 큰 최소 정수
+
+int ceil(int a, int b){
+	return (a + b - 1) / b;
 }
 
