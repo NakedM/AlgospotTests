@@ -77,3 +77,59 @@ int ceil(int a, int b){
 	return (a + b - 1) / b;
 }
 
+////////////////KMP 알고리즘
+vector<int> getPartialMatch(const string& pat){
+	int m = pat.size();
+	vector<int> failf(m, 0);
+
+	int begin = 1, matched = 0;
+
+	while(begin + matched <m){
+		if(pat[begin + matched] == pat[matched]){
+			++matched;
+			failf[begin + matched -1] = matched;
+		}
+		else {
+			if(matched == 0)
+				++begin;
+			else {
+				begin += matched - failf[matched - 1];
+				matched = failf[matched - 1];
+			}
+		}
+	}
+	return failf;
+}
+
+
+
+vector<int> kmpSearch(const string& txt, const string& pat){
+	int n = txt.size(), m = pat.size();
+	vector<int> ret;
+	
+	vector<int> failf = getPartialMatch(pat);
+
+	int begin = 0, matched = 0;
+	while(begin <= n- m) {
+		if(matched < m && txt[begin + matched] == pat[matched]){
+			++matched;
+			
+			if(matched == m) 
+				ret.push_back(begin);
+		}
+		else{
+			if(matched == 0)
+				++begin;
+			else{
+				begin += matched - failf[matched-1];
+				
+				matched = failf[matched -1];
+			}
+		}
+	}	
+	return ret;
+}
+
+
+
+///////////////
