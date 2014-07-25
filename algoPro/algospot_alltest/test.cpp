@@ -13,56 +13,65 @@ using namespace std;
 #pragma warning (disable:4996)
 ifstream in("input.txt");
 
-struct Comparator {
-	const vector<int>& group;
-	int t;
-	Comparator(const vector<int>& _group, int _t) : group(_group), t(_t) {}
+const int INT_MAXX = numeric_limits<int>::max(); //INT_MAX 는 예약어 이미 정의되어 있음.
+struct RMQ {
+	int n;
 
-	bool operator () (int a, int b){
-		if (group[a] != group[b]) return group[a] < group[b];
-
-		return group[a + t] < group[b + t];
+	vector<int> rangeMin;
+	RMQ(const vector<int>& array){
+		n = array.size();
+		rangeMin.resize(n * 4);
+		init(array, 0, n - 1, 1);
 	}
+
+	int init(const vector<int>& array, int left, int right, int node){
+		if (left == right)
+			return rangeMin[node] = array[left];
+		int mid = (left + right) / 2;
+		int leftMin = init(array, left, mid, node * 2);
+		int rightMin = init(array, mid + 1, right, node * 2 + 1);
+		return rangeMin[node] = min(leftMin, rightMin);
+	}
+
+	int query(int left, int right, int node, int nodeLeft, int nodeRight){
+		if (right < nodeLeft || nodeRight < left)
+			return INT_MAXX;
+		if (left <= nodeLeft && nodeRight <= right)
+			return rangeMin[node];
+
+		int mid = (nodeLeft + nodeRight) / 2;
+		return min(query(left, right, node * 2, nodeLeft, mid),
+			query(left, right, node * 2 + 1, mid + 1, nodeRight));
+	}
+	//외부에서 호출하기 위해
+	int query(int left, int right){
+		return query(left, right, 1, 0, n - 1);
+	}
+
+	int update(int index, int newValue, int node, int nodeLeft, int nodeRight){
+		if (index < nodeLeft || nodeRight < index)
+			return rangeMin[node];
+
+		if (nodeLeft == nodeRight) return rangeMin[node] = newValue;
+		int mid = (nodeLeft + nodeRight) / 2;
+		return rangeMin[node] = min(
+			update(index, newValue, node * 2, nodeLeft, mid),
+			update(index, newValue, node * 2 + 1, mid + 1, nodeRight));
+	}
+
+	//외부에서 호출하기 위해
+	int update(int index, int newValue){
+		return update(index, newValue, 1, 0, n - 1);
+	}
+
 };
 
-vector<int> getSuffixArray(const string& s){
-	int n = s.size();
 
-	int t = 1;
-	vector<int> group(n + 1);
-	for (int i = 0; i < n; ++i)
-		group[i] = s[i];
 
-	group[n] = -1;
+};
 
-	vector<int> perm(n);
-	for (int i = 0; i < n; i++)
-		perm[i] = i;
 
-	while (t < n){
 
-		Comparator compareUsing2T(group, t);
-		sort(perm.begin(), perm.end(), compareUsing2T);
-		for (int i = 0; i < group.size(); i++)
-			cout << group[i] << " ";
-		cout << endl;
-
-		t *= 2;
-		if (t >= n) break;
-
-		vector<int> newGroup(n + 1);
-		newGroup[n] = -1;
-		newGroup[perm[0]] = 0;
-		for (int i = 1; i < n; i++){
-			if (compareUsing2T(perm[i - 1], perm[i]))
-				newGroup[perm[i]] = newGroup[perm[i - 1]] + 1;
-			else
-				newGroup[perm[i]] = newGroup[perm[i - 1]];
-		}
-		group = newGroup;
-	}
-	return perm;
-}
 
 int main(){
 #ifdef _HONG    
