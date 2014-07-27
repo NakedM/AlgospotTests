@@ -12,34 +12,20 @@ using namespace std;
 
 ifstream in("input.txt");
 
-bool alphabet[26][26];
-string str;
-bool invalidflg;
-void printt(int k)
-{
-	for (int i = 0; i < 26; i++)
-	{
-		if (alphabet[i][k])
-		{
-			if (alphabet[k][i])
-				invalidflg = false;
-			printt(i);
-			break;
-		}
+vector<int> order;
+vector<bool> visit;
+vector<vector<bool>> graph;
+void dfs(int here){
+	visit[here] = true;
+	for (int there = 0; there < 26; there++){
+		if (graph[here][there] && !visit[there])
+			dfs(there);
 	}
-	str += ('a' + k);
-	for (int i = 0; i < 26; i++)
-	{
-		if (alphabet[k][i])
-		{
-			if (alphabet[i][k])
-				invalidflg = false;
-			printt(i);
-			break;
-		}
-	}
-	return;
+	order.push_back(here);
 }
+
+
+
 
 int main(){
 #ifdef _HONG   
@@ -49,38 +35,57 @@ int main(){
 	cin >> tc;
 	while (tc--){
 		int n;
-		vector<string> vc;
-
-		memset(alphabet, 0, sizeof(alphabet));
-		
 		cin >> n;
-		string tmp;
-		for (int i = 0; i < n; i++)
-		{
-			cin >> tmp;
-			vc.push_back(tmp);
+		string str;
+		vector<string> words;
+		for (int i = 0; i < n; i++){
+			cin >> str;
+			words.push_back(str);
 		}
-		for (int i = 1; i < n; i++)
-		{
-			int before = i - 1;
-			int len = min(vc[i].size(), vc[before].size());
+		graph = vector<vector<bool> >(26, vector<bool>(26, false));
 
-			for (int h = 0; h < len; h++)
-			{
-				if (vc[before][h] != vc[i][h])
-				{
-					int first = vc[before][h]-'a';
-					int second = vc[i][h] - 'a';
-					alphabet[first][second] = true;
+		int wsz = words.size();
+		for (int i = 1; i < wsz; i++){
+			int minlen = min(words[i].size(), words[i - 1].size());
+
+			for (int k = 0; k < minlen; k++){
+				if (words[i - 1][k] != words[i][k]){					
+					int y = words[i][k] - 'a';
+					int x = words[i - 1][k] - 'a';
+					graph[y][x] = true; // y는 x보다 뒤이다.
 					break;
 				}
 			}
 		}
+		visit = vector<bool>(26, false);
+		order.clear();
 
-		invalidflg = false;
-		printt(0);
-		
-		
+		for (int i = 0; i < 26; i++){
+			if (!visit[i])
+				dfs(i);
+		}
+		//reverse(order.begin(), order.end());
+
+		bool flg = true;
+
+		for (int i = 0; i < 26; i++){
+			for (int j = i + 1; j < 26; j++){
+				if (graph[order[i]][order[j]])
+					flg = false;
+			}
+		}
+
+		if (flg)
+		{
+			for (int i = 0; i < 26; i++){
+				char t = order[i] + 'a';
+				cout << t;
+			}
+			cout << endl;
+		}
+		else
+			cout << "INVALID HYPOTHESIS" << endl;
+
 
 
 	}

@@ -292,3 +292,167 @@ int countLessThan(Node* root, KeyType key){
 	return ls + 1 + countLessThan(root->right, key);
 }
 
+///////// 구간트리 range minimum query, RMQ
+const int INT_MAXX = numeric_limits<int>::max(); //INT_MAX 는 예약어 이미 정의되어 있음.
+struct RMQ {
+	int n;
+
+	vector<int> rangeMin;
+	RMQ(const vector<int>& array){
+		n = array.size();
+		rangeMin.resize(n * 4);
+		init(array, 0, n - 1, 1);
+	}
+
+	int init(const vector<int>& array, int left, int right, int node){
+		if (left == right)
+			return rangeMin[node] = array[left];
+		int mid = (left + right) / 2;
+		int leftMin = init(array, left, mid, node * 2);
+		int rightMin = init(array, mid + 1, right, node * 2 + 1);
+		return rangeMin[node] = min(leftMin, rightMin);
+	}
+
+	int query(int left, int right, int node, int nodeLeft, int nodeRight){
+		if (right < nodeLeft || nodeRight < left)
+			return INT_MAXX;
+		if (left <= nodeLeft && nodeRight <= right)
+			return rangeMin[node];
+
+		int mid = (nodeLeft + nodeRight) / 2;
+		return min(query(left, right, node * 2, nodeLeft, mid),
+			query(left, right, node * 2 + 1, mid + 1, nodeRight));
+	}
+	//외부에서 호출하기 위해
+	int query(int left, int right){
+		return query(left, right, 1, 0, n - 1);
+	}
+
+	int update(int index, int newValue, int node, int nodeLeft, int nodeRight){
+		if (index < nodeLeft || nodeRight < index)
+			return rangeMin[node];
+
+		if (nodeLeft == nodeRight) return rangeMin[node] = newValue;
+		int mid = (nodeLeft + nodeRight) / 2;
+		return rangeMin[node] = min(
+			update(index, newValue, node * 2, nodeLeft, mid),
+			update(index, newValue, node * 2 + 1, mid + 1, nodeRight));
+	}
+
+	//외부에서 호출하기 위해
+	int update(int index, int newValue){
+		return update(index, newValue, 1, 0, n - 1);
+	}
+
+};
+
+///////fenwick tree 펜윅트리, binary indexed tree;
+struct FenwickTree{
+	//원소가 전부 0이라고 생각한다.
+	vector<int> tree;
+	FenwickTree(int n) : tree(n + 1) {}
+
+	int sum(int pos){
+		++pos;
+		int ret = 0;
+		while (pos > 0){
+			ret += tree[pos];
+			pos &= (pos - 1);
+		}
+		return ret;
+	}
+
+	void add(int pos, int val){
+		++pos;
+		while (pos < tree.size()){
+			tree[pos] += val;
+			pos += (pos & -pos);
+		}
+	}
+};
+
+//////////union fine set 유니온 파인드
+struct OptimizedDisjointSet {
+	vector<int> parent, rank;
+	OptimizedDisjointSet(int n) : parent(n), rank(n, 1){
+		for (int i = 0; i < n; i++)
+			parent[i] = i;
+	}
+
+	int find(int u){
+		if (u == parent[u]) return u;
+		return parent[u] = find(parent[u]);
+	}
+
+	void merge(int u, int v){
+		u = find(u);
+		v = find(v);
+
+		if (u == v) return;
+		if (rank[u] > rank[v]) swap(u, v);
+
+		parent[u] = v;
+		if (rank[u] == rank[v]) ++rank[v];
+	}
+};
+
+
+////////trie 트라이
+const int ALPHABETS = 26;
+int toNumber(char ch) {
+	return ch - 'A';
+}
+
+struct  TrieNode{
+	TrieNode* children[ALPHABETS];
+
+	bool terminal;
+	TrieNode() : terminal(false) {
+		memset(children, 0, sizeof(children));
+	}
+	~TrieNode() {
+		for (int i = 0; i < ALPHABETS; i++)
+		if (children[i])
+			delete children[i];
+	}
+
+	void insert(const char* key){
+		if (*key == 0)
+			terminal = true;
+		else {
+			int next = toNumber(*key);
+			if (children[next] == NULL)
+				children[next] = new TrieNode();
+
+			children[next]->insert(key + 1);
+		}
+
+	}
+
+	TrieNode* find(const char* key) {
+		if (*key == 0) return this;
+		int next = toNumber(*key);
+		if (children[next] = NULL) return NULL;
+		return children[next]->find(key + 1);
+	}
+};
+
+
+
+///////////오일러 서킷
+vector<vector<int> > adj
+
+void getEulerCircuit(int here, vector<int>& circuit) {
+	for (int there = 0; there < adj.size(); there++){
+		while (adj[here][there] > 0){
+			adj[here][there]--;
+			adj[there][here]--;
+			getEulerCircuit(there, circuit);
+		}
+	}
+	circuit.push_back(here); //방문 역순으로 저장됨
+}
+
+//오일러 트레일은 오일러 서킷처럼 그래프의 모든 간선을 정확히 한 번씩 지나지만,
+//시작점과 끝점이 다른 경로를 오일러 트레일 이라고 부른다.
+//a에서 시작 b에서 끝난다면 간선(b,a)를 추가해서 서킷 알고리즘을 돌리면 된다.

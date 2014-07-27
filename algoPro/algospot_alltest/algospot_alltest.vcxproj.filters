@@ -21,9 +21,6 @@
     <ClCompile Include="algospot_bst.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="algospot_arctic.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="algospot_boggle.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -231,9 +228,6 @@
     <ClCompile Include="algospot_civ5.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="algospot_dirctionary.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="algospot_festival.cpp">
       <Filter>done</Filter>
     </ClCompile>
@@ -293,6 +287,15 @@
     </ClCompile>
     <ClCompile Include="boj_2758.cpp">
       <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_arctic.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_dirctionary.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_wordchain.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
