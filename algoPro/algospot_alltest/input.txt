@@ -1,18 +1,7 @@
 3
-3
-ba
-aa
-ab
-5
-gg
-kia
-lotte
-lg
-hanhwa
-6
-dictionary
-english
-is
-ordered
-ordinary
-this
+90
+10 10 10 10 10 10 10 10 10
+1000
+77 77 70 11 34 35 41 83 54
+50
+10 20 30 40 50 60 50 40 30
