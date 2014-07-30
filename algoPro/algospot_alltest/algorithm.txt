@@ -456,3 +456,228 @@ void getEulerCircuit(int here, vector<int>& circuit) {
 //오일러 트레일은 오일러 서킷처럼 그래프의 모든 간선을 정확히 한 번씩 지나지만,
 //시작점과 끝점이 다른 경로를 오일러 트레일 이라고 부른다.
 //a에서 시작 b에서 끝난다면 간선(b,a)를 추가해서 서킷 알고리즘을 돌리면 된다.
+
+
+////////////////////////////////////////////////////////////////////
+/// 퍼즐 너비 우선탐색 고찰
+class State{
+	vector<State> getAdjacent() const;
+	bool operator < (const State& rhs) const;
+	bool operator == (const State& rhs) const;
+};
+typedef map<State, int> StateMap;
+
+int bfs(State start, State finish){
+
+	if (start == finish) return 0;
+
+	StateMap c;
+
+	queue<State> q;
+	q.push(start);
+	c[start] = 0;
+
+	while (!q.empty()){
+		State here = q.front();
+		q.pop();
+		int cost = c[here];
+
+		vector<State> adjacent = here.getAdjacent();
+		for (int i = 0; i < adjacent.size(); i++){
+			if (c.count(adjacent[i]) == 0){
+
+				if (adjacent[i] == finish) return cost + 1;
+				c[adjacent[i]] = cost + 1;
+				q.push(adjacent[i]);
+			}
+		}
+	}
+
+	return -1;
+}
+
+//////양 방향 탐색
+int sgn(int x) {
+	if (!x) return 0; return x > 0 ? 1 : -1;
+}
+
+int incr(int x) {
+	if (x < 0) return x - 1; return x + 1;
+}
+
+int bidirectional(State start, State finish){
+	map<State, int> c;
+
+	queue < State> q;
+
+	if (start == finish) return 0;
+
+	q.push(start); c[start] = 1;
+	q.push(finish); c[finish] = -1;
+
+	while (!q.empty()){
+		State here = q.front();
+		q.pop();
+
+		vector<State> adjacent = here.getAdjacent();
+		for (int i = 0; i < adjacent.size(); i++){
+			map<State, int>::iterator it = c.find(adjacent[i]);
+			if (it == c.end()){
+				c[adjacent[i]] = incr(c[here]);
+				q.push(adjacent[i]);
+			}
+
+			else if (sgn(it->second != sgn(c[here]))
+				return abs(it->second) + abs(c[here]) - 1;
+		}
+	}
+
+	return -1;
+}
+
+
+////점점 깊어지는 탐색 알고리즘 ids
+
+int best;
+
+void dfs(State here, const State& finish, int steps){
+	if (steps >= best) return;
+
+	if (here == finish) {
+		best = steps; return;
+	}
+
+	vector<State> adjacent = here.getAdjacent();
+	for (int i = 0; i < adjacent.size(); i++)
+		dfs(adjacent[i], finish, steps + 1);
+}
+
+int ids(State start, State finish, int growthStep){
+	for (int limit = 4;; limit += growthStep){
+		best = limit + 1;
+		dfs(start, finish, 0);
+		if (best <= limit)
+			return best;
+	}
+	return -1;
+}
+
+////////////////////////////////////////////////////////////////
+
+
+/////////다익스트라 알고리즘 dijkstra's algorithm
+int V;
+vector<pair<int, int> > adj[MAX_V];
+vector<int> dijkstra(int src){
+	vector<int> dist(V, INF);
+	dist[src] = 0;
+	priority_queue<pair<int, int> > pq; //max가 top에 감 그래서 그래프에 가중치를 전부 -로 둠
+	//아니면
+	//pritority_queue<pair<int,int>, vector<pair<int,int> >, greater<pair<int,int> > > pq;
+	pq.push(make_pair(0, src));
+	while (!pq.empty()) {
+		int cost = -pq.top().first;
+		int here = pq.top().second;
+
+		pq.pop();
+
+		if (dist[here] < cost) continue;
+
+		for (int i = 0; i<adj[here].size(); i++){
+			int there = adj[here][i].first;
+			int nextDist = cost + adj[here][i].second;
+
+			if (dist[there] > nextDist){
+				dist[there] = nextDist;
+				pq.push(make_pair(-nextDist, there));
+			}
+		}	
+	}
+	return dist;
+}
+
+
+
+/////////////벨만-포드 알고리즘 bellman-ford algorithm
+int V;
+vector<pair<int, int> > adj[MAX_V];
+//음수 사이클이 있을 경우 텅 빈 배열을 반환
+vector<int> bellmanFord(int src){
+
+	vector<int> upper(V, INF);
+	upper[src] = 0;
+	bool updated;
+
+	for (int iter = 0; iter < V; iter++){
+		updated = false;
+		for (int here = 0; here < V; here++){
+			for (int i = 0; i < adj[here].size(); i++){
+				int there = adj[here][i].first;
+				int cost = adj[here][i].second;
+
+				if (upper[there] > upper[here] + cost){
+
+					upper[there] = upper[here] + cost;
+					updated = true;
+				}
+			}
+			//완화실패
+			if (!updated) break;
+		}
+		if (updated) upper.clear();
+		return upper;
+	}
+}
+
+
+////////////플로이드 워셔 알고리즘 floyd algorithm
+int V;
+int adj[MAX_V][MAX_V}; //간선이 없으면 INF
+void floyd(){
+	for (int i = 0; i < V; i++) adj[i][i] = 0;
+
+	for (int k = 0; k < V; k++)
+		for (int i = 0; i < V; i++)
+			//if(adj[i][k] != INF)  //이건 최적화 할때
+			for (int j = 0; j < V; j++)
+				adj[i][j] = min(adj[i][j], adj[i][k] + adj[k][j]);
+			//adj[u][v] = adj[i][j] || (adj[i][k] && adj[k][j]) //이건 도달 가능성을 나타낼수있음. //간결해서
+
+}
+
+
+//////플로이드 경로찾기
+//via[u][v] = u에서 v까지 가는 최단 경로가 경유하는 점 중 가장 번호가 큰 정점
+int via[MAX_V][MAX_V];
+
+void floyd2(){
+	for (int i = 0; i < V; i++)
+		adj[i][i] = 0;
+	memset(via, -1, sizeof(via));
+	for (int k = 0; k < V; k++){
+		for (int i = 0; i < V; i++){
+			for (int j = 0; j<V; j++){
+				if (adj[i][j] > adj[i][k] + adj[k][j]){
+					via[i][j] = k;
+					adj[i][j] = adj[i][k] + adj[k][j];
+				}
+			}
+		}
+	}
+}
+
+void reconstruct(int u, int v, vector<int>& path){
+	//기저
+	if (via[u][v] == -1){
+		path.push_back(u);
+		if (u != v) path.push_back(v);
+	}
+	else{
+		int w = via[u][v];
+		reconstruct(u, w, path);
+		path.pop_back();//w가 중복으로 들어가서 지운다.
+		reconstruct(w, v, path);
+	}
+}
+
+////////////////////////////////////

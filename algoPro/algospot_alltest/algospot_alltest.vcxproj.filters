@@ -303,8 +303,11 @@
     <ClCompile Include="algospot_sortgame.cpp">
       <Filter>done</Filter>
     </ClCompile>
-    <ClCompile Include="algospot_housummer.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="algospot_hotusummer.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_timetrip.cpp">
+      <Filter>done</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
