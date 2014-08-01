@@ -309,6 +309,21 @@
     <ClCompile Include="algospot_timetrip.cpp">
       <Filter>done</Filter>
     </ClCompile>
+    <ClCompile Include="boj_2684.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_2688.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_2685.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_2687.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_2692.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="input.txt">
