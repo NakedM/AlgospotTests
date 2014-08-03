@@ -1,104 +1,111 @@
-//#include<iostream>
-//#include<fstream>
-//#include<string>
-//#include<cstring>
-//#include<cmath>
-//#include<vector>
-//#include<algorithm>
-//#include<queue>
-//using namespace std;
-//
-//ifstream in("input.txt");
-//vector<int> tr[3];
-//vector<bool> visited;
-//
-//void binaryT(int ind, char c, int p){
-//	if(ind ==0)
-//		return;
-//	if(visited[ind])
-//		return;
-//	if(tr[2][tr[0][ind]] == tr[2][ind] || tr[2][tr[1][ind]] == tr[2][ind])
-//			return;
-//	visited[ind] = true;
-//	if(c == 'l'){
-//		if(tr[2][tr[0][ind]] < tr[2][ind])
-//			binaryT(tr[0][ind],'l',tr[2][ind]);
-//		if(tr[2][tr[1][ind]] > tr[2][ind] && tr[2][tr[1][ind]] < p)
-//			binaryT(tr[1][ind],'r',tr[2][ind]);		
-//	}
-//	if(c=='r'){
-//		if(tr[2][tr[0][ind]] < tr[2][ind] && tr[2][tr[0][ind]] > p)
-//			binaryT(tr[0][ind],'l',tr[2][ind]);
-//		if(tr[2][tr[1][ind]] > tr[2][ind])
-//			binaryT(tr[1][ind],'r',tr[2][ind]);			
-//	}
-//	return;
-//}
-//
-//
-//int main(){
-//#ifdef _CONSOLE    
-//	freopen("input.txt","r", stdin);
-//	//	freopen("output.txt","w+", stdout);
-//#endif
-//	int tc;
-//	cin>>tc;
-//	while(tc--){
-//		int n;
-//		cin>>n;		
-//		int L,R,K;
-//		visited = vector<bool>(n+1,false);
-//
-//		tr[0].push_back(-1);
-//		tr[1].push_back(-1);
-//		tr[2].push_back(-1);
-//		for(int i=0;i<n;i++){
-//			cin>>L>>R>>K;
-//			tr[0].push_back(L);
-//			tr[1].push_back(R);
-//			tr[2].push_back(K);
-//		}
-//		bool rstflg = false;
-//		int cntZero = 0;
-//		for(int i=1;i<n+1;i++){
-//			if(tr[0][i] == 0)
-//				cntZero++;
-//			if(tr[1][i] == 0)
-//				cntZero++;		
-//		}
-//		for(int i=1;i<n+1;i++){
-//			bool flg = true;
-//			if(n==1)
-//				rstflg = true;
-//			if(tr[0][i] == 0 && tr[1][i] == 0){
-//				continue;
-//			}			
-//			visited[i] = true;
-//			binaryT(tr[0][i],'l',tr[2][i]);
-//			binaryT(tr[1][i],'r',tr[2][i]);
-//			for(int i=1;i<n+1;i++){
-//				if(!visited[i]){
-//					flg = false;
-//					break;
-//				}
-//			}
-//			if(!flg)
-//				for(int i=1;i<n+1;i++)
-//					visited[i] = false;
-//			else{
-//				rstflg = flg;
-//				break;
-//			}
-//		}
-//		if(rstflg && cntZero == n+1)
-//			cout<<"YES"<<endl;
-//		else
-//			cout<<"NO"<<endl;
-//
-//		tr[0].clear();
-//		tr[1].clear();
-//		tr[2].clear();
-//		visited.clear();
-//	}
-//	return 0;
-//}
+#include<iostream>
+#include<fstream>
+#include<string>
+#include<cstring>
+#include<cmath>
+#include<vector>
+#include<algorithm>
+#include<queue>
+#include<deque>
+#include<limits>
+#include<bitset>
+#include<map>
+using namespace std;
+
+#pragma warning (disable:4996)
+ifstream in("input.txt");
+
+
+
+const int INF = 987654321;
+
+struct bst{
+	int leftindex = 0;
+	int rightindex = 0;
+	int key = -1;
+};
+
+
+vector<bool> visit;
+vector<bst> nodes;
+
+
+int binary(int rootind){
+	if (rootind == 0)
+		return 1;
+
+	if (visit[rootind])
+		return INF;
+
+	int ret = 1;
+	visit[rootind] = true;
+
+	int rootkey = nodes[rootind].key;
+	int leftkey = nodes[nodes[rootind].leftindex].key;
+	int rightkey = nodes[nodes[rootind].rightindex]	.key;
+
+	if (leftkey < rootkey)
+		ret+=binary(nodes[rootind].leftindex);
+	if (rightkey == -1 || rightkey > rootkey)
+		ret += binary(nodes[rootind].rightindex);
+
+	return ret;
+}
+
+int main(){
+#ifdef _HONG    
+	freopen("input.txt", "r", stdin);
+	//	freopen("output.txt","w+", stdout);
+#endif
+	int tc;
+	cin >> tc;
+	while (tc--){
+		nodes.clear();
+		vector<bool> keys(1001, false);
+		bool overlap = false;
+		int n;
+		cin >> n;
+		
+		bst node;
+		nodes.push_back(node);
+
+		int a, b, c;
+		for (int i = 0; i < n; i++){
+			cin >> a >> b >> c;
+			node.leftindex = a;
+			node.rightindex = b;
+			node.key = c;
+			if (!keys[c])
+				keys[c] = true;
+			else
+				overlap = true;
+
+			
+			nodes.push_back(node);
+		}
+
+		
+
+		int allnode = n * 2 + 1;
+		bool flg = false;
+		//int ch;
+
+		for (int i = 1; i <= n; i++){
+			visit = vector<bool>(n + 1, false);
+			if (allnode == binary(i)){
+				//ch = i;
+				flg = true;
+				break;
+			}
+		}
+
+
+		if (!overlap && flg){
+			//cout << ch << endl;
+			cout << "YES" << endl;
+		}
+		else
+			cout << "NO" << endl;
+	}
+	return 0;
+}

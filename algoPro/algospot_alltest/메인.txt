@@ -6,8 +6,10 @@
 #include<vector>
 #include<algorithm>
 #include<queue>
+#include<deque>
 #include<limits>
 #include<bitset>
+#include<map>
 using namespace std;
 
 #pragma warning (disable:4996)

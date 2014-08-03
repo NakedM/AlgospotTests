@@ -13,6 +13,9 @@ using namespace std;
 #pragma warning (disable:4996)
 ifstream in("input.txt");
 
+
+////////////////실수 처리 공부해야됨!!!
+
 vector<double> x(3);
 vector<double> y(3);
 
