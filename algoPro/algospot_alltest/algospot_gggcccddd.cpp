@@ -6,63 +6,66 @@
 #include<vector>
 #include<algorithm>
 #include<queue>
+#include<deque>
 #include<limits>
 #include<bitset>
+#include<map>
 using namespace std;
 
+#pragma warning (disable:4996)
 ifstream in("input.txt");
 
-vector<int> invt;
-vector<vector<long long>> vt;
+const int MOD = 1000000007;
+
+
+int gcd(int p, int q){
+	return q == 0 ? p : gcd(q, p % q);
+}
 
 int main(){
-#ifdef _CONSOLE    
-	freopen("input.txt","r", stdin);
+#ifdef _HONG    
+	freopen("input.txt", "r", stdin);
 	//	freopen("output.txt","w+", stdout);
 #endif
+
+	
+	
 	int tc;
-	cin>>tc;
-	while(tc--){
-		int n,m;
-		const long long MOD = 1000000007;
-		cin>>n>>m;
-		vt = vector<vector<long long>>(n+1);
-
-		invt.push_back(0);
-		for(int i=1;i<n+1;i++){
-			int t = n/i;
-			invt.push_back(t);
-		}
-
-		for(int i=0;i<m;i++)
-			vt[0].push_back(1);
+	cin >> tc;	
+	while (tc--){
 		
-		for(int i=1;i<n+1;i++){
-			vt[i].push_back(1);
-			for(int j=1;j<m;j++){
-				vt[i].push_back((vt[i][j-1]*i)%MOD);
+		int n, m;
+		cin >> n >> m;
+		vector<vector<int> >vc(n+1);
+
+		for (int i = 1; i <= n; i++){
+			for (int j = 0; j <= i; j++){
+				vc[i].push_back(0);
 			}
 		}
 
-		long long sum = n;
-		for(int i=2;i<n+1;i++){
-			int t = invt[n-i+1];
-			if(t==1)
-				sum+=n-i+1;
-			else{
-				for(int j=0;j<m;j++){
-				
-					sum = (sum+(((vt[t][m-j-1]*vt[t-1][j]))*(n-i+1))%MOD)%MOD;
-					//sum = (sum+(((vt[i][m-j-1]*vt[i-1][j]))*(n-i+1))%MOD)%MOD;
-				
-				}
+		for (int i = 1; i <= n; i++){
+			for (int j = 1; j <= n; j++){
+				int res = gcd(i, j);
+				vc[i][res]++;
 			}
-			cout<<sum<<endl;
 		}
 
-		cout<<sum<<endl<<endl;
-		vt.clear();
-		invt.clear();
+		vector<int> sums(n + 1, 0);
+		int result = 0;
+		
+		for (int i = 1; i <= n; i++){
+			for (int j = i; j <= n; j++){
+				sums[i] += vc[j][i];
+			}
+		}
+		
+		
+
+		for (int i = 1; i <= n; i++)
+			result += (sums[i]*i)%MOD;
+		cout << result << endl;
+
 	}
 	return 0;
 }

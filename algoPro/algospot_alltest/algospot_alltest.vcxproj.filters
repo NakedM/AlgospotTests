@@ -48,9 +48,6 @@
     <ClCompile Include="algospot_diamondpath.cpp">
       <Filter>done</Filter>
     </ClCompile>
-    <ClCompile Include="algospot_dictionary.cpp">
-      <Filter>done</Filter>
-    </ClCompile>
     <ClCompile Include="algospot_drawrect.cpp">
       <Filter>done</Filter>
     </ClCompile>
@@ -334,6 +331,15 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="algospot_bst.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_csbaseball.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_grid.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_magicpower.cpp">
       <Filter>done</Filter>
     </ClCompile>
   </ItemGroup>
