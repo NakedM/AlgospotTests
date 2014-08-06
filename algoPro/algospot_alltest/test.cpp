@@ -28,11 +28,7 @@ int main(){
 		string str;
 		cin >> str;
 
-		vector<int> vc = getSuffixArray(str);
-
-		for (int i = 0; i < vc.size(); i++)
-			cout << vc[i] << " ";
-		cout << endl;
+	
 
 
 	}

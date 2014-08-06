@@ -342,6 +342,9 @@
     <ClCompile Include="algospot_magicpower.cpp">
       <Filter>done</Filter>
     </ClCompile>
+    <ClCompile Include="algospot_bills.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="input.txt">
