@@ -345,6 +345,21 @@
     <ClCompile Include="algospot_bills.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="boj_2606.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_1009.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_2896.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_1002.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_2493.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="input.txt">
