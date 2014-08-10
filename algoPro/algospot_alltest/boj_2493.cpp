@@ -32,15 +32,16 @@ int main(){
 		vc.push_back(make_pair(a, i));
 	}
 	sort(vc.begin(), vc.end());
-	vector<int> val(n+1, 0);
+	vector<int> val(n+1, -1);
 
-	for (int i = n; i >= 0; i--){
-		int ind = vc[i].second;
-		for (int j = ind; j<=n; j++){
-			if (ind > val[j])
-				val[j] = ind;
-			else
+	for (int i = n-1; i >= 0; i--){
+		for (int j = vc[i].second - 1; j >= 0; j--){
+			if (val[j] != -1){
+				val[vc[i].second] = j;
 				break;
+			}
+			if (j == 0)
+				val[vc[i].second] = 0;
 		}
 	}
 
