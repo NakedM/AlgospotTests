@@ -372,6 +372,21 @@
     <ClCompile Include="boj_1014.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="boj_1021.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_1024.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_1026.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_1032.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_1049.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="input.txt">

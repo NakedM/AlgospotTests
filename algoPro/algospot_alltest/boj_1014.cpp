@@ -48,6 +48,7 @@ int main(){
 				for (int i = n-1; i >= 0; i--){
 					if (pann[i][j] == 1){
 						result[s] += pann[i][j];
+						pann[i][j] = 0;
 						for (int h = 0; h < 4; h++){
 							if (xx[h] + j < 0 || yy[h] + i < 0 || xx[h] + j >= m || yy[h] >= n)
 								continue;
@@ -55,19 +56,14 @@ int main(){
 						}
 					}
 				}
-				cout << s << endl;
-				for (int p = 0; p < n; p++){
-					for (int q = 0; q < m; q++){
-						cout << pann[p][q] << " ";
-					}
-					cout << endl;
-				}
-				cout << endl;
+				if(s == 7)
+					cout << result[s] << " ";
 			}
 			for (int j = 0; j < s; j++){
 				for (int i = n - 1; i >= 0; i--){
 					if (pann[i][j] == 1){
 						result[s] += pann[i][j];
+						pann[i][j] = 0;
 						for (int h = 0; h < 4; h++){
 							if (xx[h] + j < 0 || yy[h] + i < 0 || xx[h] + j >= m || yy[h] >= n)
 								continue;
@@ -75,6 +71,8 @@ int main(){
 						}
 					}
 				}
+				if (s == 7)
+					cout << result[s] << " ";
 			}
 		}
 	
