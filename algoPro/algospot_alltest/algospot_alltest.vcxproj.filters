@@ -394,6 +394,15 @@
       <Filter>done</Filter>
     </ClCompile>
     <ClCompile Include="boj_9461.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_9465.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_8891.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_8895.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -412,6 +421,9 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="algorithm.txt">
+      <Filter>리소스 파일</Filter>
+    </Text>
+    <Text Include="boj9465dp.txt">
       <Filter>리소스 파일</Filter>
     </Text>
   </ItemGroup>
