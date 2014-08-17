@@ -1,78 +1,63 @@
 #include<iostream>
+#include<fstream>
+#include<string>
+#include<cstring>
+#include<cmath>
 #include<vector>
 #include<algorithm>
-#include<fstream>
-#include<cstring>
+#include<queue>
+#include<deque>
+#include<limits>
+#include<bitset>
+#include<map>
 using namespace std;
 
-vector<int> vt;
+#pragma warning (disable:4996)
+ifstream in("input.txt");
 
-int hyun, seo;
-int cache[51][51];
+const int MINN = -987654321;
+vector<int> nums;
+vector<vector<int> > cache;
 
-int ggame(int fr, int to, bool fg){
-	if(to-fr == 1){
-		if(fg){
-			hyun = max(vt[fr],vt[to]);
-			seo = min(vt[fr],vt[to]);
-			return hyun - seo;
-		}
-		else{
-			hyun = min(vt[fr],vt[to]);
-			seo = max(vt[fr],vt[to]);
-			return hyun - seo;
-		}
+int game(int left, int right){
+	if (left > right)
+		return 0;
+
+	int& ret = cache[left][right];
+	if (ret != MINN)
+		return ret;
+
+	ret = max(nums[left] - game(left + 1, right), nums[right] - game(left, right - 1));
+
+	if (right - left + 1 >= 2){
+		ret = max(ret, -game(left + 2, right));
+		ret = max(ret, -game(left, right - 2));
 	}
-	if(to-fr == 0){
-		if(fg){
-			hyun = vt[fr]; 
-			return hyun;
-		}
-		else{
-			seo = vt[fr];
-			return seo;
-		}
-	}
-	int& ret = cache[fr][to];
-	if(ret != -5000) return ret;
-	ret = -3000;
-	ret = max(ret, ggame(fr+2,to,!fg));
-	ret = max(ret,ggame(fr,to-2,!fg));
-
 	return ret;
-
 }
+
+
 
 int main(){
-
-#ifdef _CONSOLE
-	freopen("input.txt","r", stdin);
-	// freopen("output.txt","w+", stdout);
+	std::ios_base::sync_with_stdio(false);
+#ifdef _HONG    
+	freopen("input.txt", "r", stdin);
+	//	freopen("output.txt","w+", stdout);
 #endif
 	int tc;
-	cin>>tc;
-	while(tc--){
+	cin >> tc;
+	while (tc--){
 		int n;
-		cin>>n;
-		hyun = 0;
-		seo = 0;
-		for(int i=0;i<51;i++){
-			for(int j=0;j<51;j++){
-				cache[i][j] = -5000;
-			}
-		}
+		cin >> n;
+		nums = vector<int>(n);
+		for (int i = 0; i < n; i++)
+			cin >> nums[i];
 
-		int a;
-		for(int i=0;i<n;i++){
-			cin>>a;
-			vt.push_back(a);
-		}
+		cache = vector<vector<int> >(n, vector<int>(n, MINN));
 
-		int rst = ggame(0,n-1,1);
-		cout<<rst<<endl;
-		vt.clear();
+		int result = game(0, n - 1);
+		cout << result << endl;
+
 	}
-
 	return 0;
 }
-

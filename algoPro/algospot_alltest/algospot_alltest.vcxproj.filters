@@ -405,6 +405,18 @@
     <ClCompile Include="boj_8895.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="algospot_packing.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_morse.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_dict.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_sushi.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="input.txt">
