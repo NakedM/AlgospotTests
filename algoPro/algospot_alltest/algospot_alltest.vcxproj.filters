@@ -204,9 +204,6 @@
     <ClCompile Include="algospot_bracket.cpp">
       <Filter>done</Filter>
     </ClCompile>
-    <ClCompile Include="algospot_numbergame.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="algospot_gggcccddd.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -416,6 +413,18 @@
     </ClCompile>
     <ClCompile Include="algospot_sushi.cpp">
       <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_numbergame.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_orivirus.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_autoproduction.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_ccricket.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
