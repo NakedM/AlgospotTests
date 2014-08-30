@@ -42,9 +42,6 @@
     <ClCompile Include="algospot_convert.cpp">
       <Filter>done</Filter>
     </ClCompile>
-    <ClCompile Include="algospot_diamond.cpp">
-      <Filter>done</Filter>
-    </ClCompile>
     <ClCompile Include="algospot_diamondpath.cpp">
       <Filter>done</Filter>
     </ClCompile>
@@ -131,9 +128,6 @@
     </ClCompile>
     <ClCompile Include="algospot_divis.cpp">
       <Filter>done</Filter>
-    </ClCompile>
-    <ClCompile Include="algospot_maxmat.cpp">
-      <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="algospot_endcoding.cpp">
       <Filter>done</Filter>
@@ -324,9 +318,6 @@
     <ClCompile Include="algospot_lan.cpp">
       <Filter>done</Filter>
     </ClCompile>
-    <ClCompile Include="algospot_braveduck.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="algospot_bst.cpp">
       <Filter>done</Filter>
     </ClCompile>
@@ -424,6 +415,18 @@
       <Filter>done</Filter>
     </ClCompile>
     <ClCompile Include="algospot_ccricket.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_diamond.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_maxmat.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_braveduck.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="algospot_withdrawal.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
