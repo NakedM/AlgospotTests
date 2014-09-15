@@ -52,35 +52,7 @@ int main(){
 			continue;
 		}
 
-		int arr[2][2] = { { 1, 0 }, { 0, 1 } };
-		vector<int> result(2, 0);
-		for (int h = 0; h < 2; h++){
-			int p1count = 0, p2count = 0;
-			vector<vector<bool> > pann = graph;
-			
-			for (int i = 0; i < n; i++){
-				for (int j = 0; j < m; j++){
-					if (pann[i][j]){
-						int k;
-						for (k = 0; k < 2; k++){
-							if (pann[i + arr[1][k]][j + arr[0][k]]){
-								pann[i + arr[1][k]][j + arr[0][k]] = false;
-								p2count++;
-								break;
-							}
-						}
-						pann[i][j] = false;
-						if (k == 2)
-							p1count++;
-					}
-				}
-			}
-			result[h] = p1count * p1 + p2count * p2;
-			arr[0][0] = 0; arr[0][1] = 1;
-			arr[1][0] = 1; arr[1][1] = 0;
-		}
-
-		cout << min(result[0], result[1]) << endl;
+		
 	}
 	return 0;
 }
