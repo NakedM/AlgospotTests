@@ -70,17 +70,12 @@ int gcd(int p, int q){
 	return q ==0 ? p : gcd(q, p % q);
 }
 
-<<<<<<< HEAD
-
 ////////////////////// a / b 보다 큰 최소 정수
 
 int ceil(int a, int b){
 	return (a + b - 1) / b;
 }
 
-<<<<<<< HEAD
-=======
->>>>>>> origin/master
 ////////////////KMP 알고리즘
 vector<int> getPartialMatch(const string& pat){
 	int m = pat.size();
