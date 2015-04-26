@@ -249,9 +249,6 @@
     <ClCompile Include="algospot_ites.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="test.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="algospot_jaehasafe.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -442,6 +439,75 @@
       <Filter>done</Filter>
     </ClCompile>
     <ClCompile Include="boj_1504.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_2293.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_1660.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_2294.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_4256.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_2291.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_1463.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_1005.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_2422.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_9463.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_1181.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_5635.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_2776.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_2609.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_8958.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_9494.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_2775.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_1003.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_2630.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_4963.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_1764.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_8979.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_1302.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_1932.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
