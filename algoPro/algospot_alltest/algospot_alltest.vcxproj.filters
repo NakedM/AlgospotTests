@@ -514,6 +514,9 @@
       <Filter>done</Filter>
     </ClCompile>
     <ClCompile Include="boj_1076.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_2178.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
