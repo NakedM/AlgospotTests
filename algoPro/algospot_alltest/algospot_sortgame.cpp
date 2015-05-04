@@ -17,6 +17,7 @@ vector<int> results;
 map<vector<int>, int> mapp[8];
 int mapind;
 const int INF = 123456789;
+
 void insertnum(vector<int>& arr,vector<bool>& nums, int ind, int n){
 	if (ind >= n)
 		return;

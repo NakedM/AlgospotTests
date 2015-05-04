@@ -517,6 +517,30 @@
       <Filter>done</Filter>
     </ClCompile>
     <ClCompile Include="boj_2178.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_1759.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_2667.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_2644.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_1963.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_1149.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_1890.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_2133.cpp">
+      <Filter>done</Filter>
+    </ClCompile>
+    <ClCompile Include="test.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
