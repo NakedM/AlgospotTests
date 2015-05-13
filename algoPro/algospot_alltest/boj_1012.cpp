@@ -56,9 +56,7 @@ int main(){
 			}
 		}
 		
-			cout << count << endl;
-
-
+		cout << count << endl;
 	}
 	return 0;
 }
